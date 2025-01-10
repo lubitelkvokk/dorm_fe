@@ -4,7 +4,9 @@ import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import { AuthProvider, useAuth } from './services/AuthService';
+import ChangePassword from './pages/ChangePassword';
+import ProtectedRoute from './services/ProtectedRouter';
+import { AuthProvider} from './services/AuthService';
 
 function App() {
   return (
@@ -36,19 +38,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/change-password"
+          element={
+            <ProtectedRoute>
+              <ChangePassword />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </AuthProvider>
   );
 }
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-
-  return children;
-}
 
 export default App;

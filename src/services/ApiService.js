@@ -32,7 +32,7 @@ export const apiService = {
     if (!response.ok) {
       throw new Error(`POST ${url} failed: ${response.statusText}`);
     }
-    return response.json();
+    return response;
   },
 
   // Other HTTP methods (PUT, DELETE) can be added here.
