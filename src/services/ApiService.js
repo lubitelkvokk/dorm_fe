@@ -35,5 +35,22 @@ export const apiService = {
     return response;
   },
 
+  async put(url, data, headers = {}) {
+    const authHeaders = JSON.parse(localStorage.getItem("authHeaders")) || {};
+    const response = await fetch(baseUrl + url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        ...authHeaders,
+        ...headers,
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      let error_msg = await response.text();
+      throw new Error(`PUT ${url} failed: ${error_msg}`);
+    }
+    return response;
+  },
   // Other HTTP methods (PUT, DELETE) can be added here.
 };

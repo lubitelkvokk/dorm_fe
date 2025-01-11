@@ -6,7 +6,10 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import ChangePassword from './pages/ChangePassword';
 import ProtectedRoute from './services/ProtectedRouter';
-import { AuthProvider} from './services/AuthService';
+import { AuthProvider } from './services/AuthService';
+import { UserQuestsPage } from './pages/quests/UserQuestsPage';
+import { QuestsPage } from './pages/quests/QuestPage';
+import { CreateQuestPage } from './pages/quests/CreateQuestPage';
 
 function App() {
   return (
@@ -46,6 +49,9 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/quests" element={<QuestsPage />} />
+        <Route path="/my-quests" element={<UserQuestsPage />} />
+        <Route path="/create-quest" element={<CreateQuestPage />} />
       </Routes>
     </AuthProvider>
   );
