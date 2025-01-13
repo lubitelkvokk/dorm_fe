@@ -6,32 +6,32 @@ const QuestsPage = () => {
     const [quests, setQuests] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [currentPage, setCurrentPage] = useState(0); // Начинаем с 0
+    const [pageSize, setPageSize] = useState(5);
+    const [totalPages, setTotalPages] = useState(1);
+
     const navigate = useNavigate();
 
+    const fetchQuests = async (page, size) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const data = await apiService.get(`quest?page=${page}&size=${size}`);
+            setQuests(data.content || []);
+            setTotalPages(data.totalPages || 1);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const fetchQuests = async () => {
-            setLoading(true);
-            setError(null);
-            try {
-                const data = await apiService.get('quest');
-                setQuests(data.content || []);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+        fetchQuests(currentPage, pageSize);
+    }, [currentPage, pageSize]);
 
-        fetchQuests();
-    }, []);
-
-    const handleUserQuestsClick = () => {
-        navigate('/my-quests');
-    };
-
-    const handleCreateQuestClick = () => {
-        navigate('/create-quest');
-    };
+    const handleUserQuestsClick = () => navigate('/my-quests');
+    const handleCreateQuestClick = () => navigate('/create-quest');
 
     if (loading) return <p>Loading quests...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -50,7 +50,25 @@ const QuestsPage = () => {
                     </li>
                 ))}
             </ul>
+            <div>
+                <button
+                    disabled={currentPage === 0}
+                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                >
+                    Previous
+                </button>
+                <span>
+                    Page {currentPage + 1} of {totalPages}
+                </span>
+                <button
+                    disabled={currentPage + 1 === totalPages}
+                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };
-export { QuestsPage};
+
+export { QuestsPage };

@@ -5,27 +5,31 @@ const UserQuestsPage = () => {
     const [userQuests, setUserQuests] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [pageSize, setPageSize] = useState(3);
+    const [totalPages, setTotalPages] = useState(1);
+
+    const fetchUserQuests = async (page, size) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const data = await apiService.get(`quest/my_quests?page=${page}&size=${size}`);
+            setUserQuests(data.content || []);
+            setTotalPages(data.totalPages || 1);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const fetchUserQuests = async () => {
-            setLoading(true);
-            setError(null);
-            try {
-                const data = await apiService.get('quest/my_quests');
-                setUserQuests(data.content || []);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchUserQuests();
-    }, []);
+        fetchUserQuests(currentPage, pageSize);
+    }, [currentPage, pageSize]);
 
     const completeQuest = async (questId, isuNumber, rating) => {
         try {
-            let response = await apiService.put('quest', { questId, isuNumber, rating });
+            await apiService.put('quest', { questId, isuNumber, rating });
             setUserQuests((prev) => prev.filter((quest) => quest.id !== questId));
             alert('Quest completed successfully!');
         } catch (err) {
@@ -67,6 +71,23 @@ const UserQuestsPage = () => {
                     </li>
                 ))}
             </ul>
+            <div>
+                <button
+                    disabled={currentPage === 0}
+                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                >
+                    Previous
+                </button>
+                <span>
+                    Page {currentPage + 1} of {totalPages}
+                </span>
+                <button
+                    disabled={currentPage + 1 === totalPages}
+                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };

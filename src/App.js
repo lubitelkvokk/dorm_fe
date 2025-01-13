@@ -10,6 +10,8 @@ import { AuthProvider } from './services/AuthService';
 import { UserQuestsPage } from './pages/quests/UserQuestsPage';
 import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
+import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
+import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
 
 function App() {
   return (
@@ -52,6 +54,9 @@ function App() {
         <Route path="/quests" element={<QuestsPage />} />
         <Route path="/my-quests" element={<UserQuestsPage />} />
         <Route path="/create-quest" element={<CreateQuestPage />} />
+
+        <Route path="/laundry/schedule" element={<LaundrySchedulePage />} />
+        <Route path="/laundry/operator" element={<LaundryOperatorPage />} />
       </Routes>
     </AuthProvider>
   );

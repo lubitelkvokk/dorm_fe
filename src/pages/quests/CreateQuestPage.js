@@ -18,7 +18,7 @@ const CreateQuestPage = () => {
         const newQuest = { description, reward, questType };
         await apiService.post('quest', newQuest);
         alert('Quest created successfully!');
-        navigate('/');
+        navigate('/my-quests');
       } catch (err) {
         setError(err.message);
       } finally {

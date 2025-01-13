@@ -13,7 +13,8 @@ export const apiService = {
       headers: { ...authHeaders, ...headers } 
     });
     if (!response.ok) {
-      throw new Error(`GET ${url} failed: ${response.statusText}`);
+      let error_msg = await response.text();
+      throw new Error(`GET ${url} failed: ${error_msg}`);
     }
     return response.json();
   },
@@ -30,7 +31,10 @@ export const apiService = {
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      throw new Error(`POST ${url} failed: ${response.statusText}`);
+      console.log(response);
+      let error_msg = await response.text();
+      console.log(error_msg);
+      throw new Error(`POST ${url} failed: ${error_msg}`);
     }
     return response;
   },
