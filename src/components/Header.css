@@ -1,0 +1,41 @@
+.header {
+  background-color: #ffffcc; /* Светло-желтый фон */
+  color: #000080; /* Темно-синий текст */
+  padding: 10px;
+  border-bottom: 3px solid #000080; /* Темно-синяя линия */
+  font-family: Arial, sans-serif;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  width: 150px; /* Размер логотипа */
+  height: 80px;
+  margin-right: 10px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.nav-button {
+  background-color: #ffffcc; /* Светло-желтый фон кнопки */
+  border: 2px solid #000080; /* Темно-синяя рамка */
+  color: #000080; /* Темно-синий текст */
+  padding: 5px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #000080; /* Темно-синий фон при наведении */
+  color: #ffffff; /* Белый текст */
+}

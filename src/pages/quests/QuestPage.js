@@ -32,6 +32,7 @@ const QuestsPage = () => {
 
     const handleUserQuestsClick = () => navigate('/my-quests');
     const handleCreateQuestClick = () => navigate('/create-quest');
+    const handleHomeClick = () => navigate('/home');
 
     if (loading) return <p>Loading quests...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -41,6 +42,7 @@ const QuestsPage = () => {
             <h1>All Quests</h1>
             <button onClick={handleUserQuestsClick}>View My Quests</button>
             <button onClick={handleCreateQuestClick}>Create New Quest</button>
+            <button onClick={handleHomeClick}>Back to Home</button>
             <ul>
                 {quests.map((quest) => (
                     <li key={quest.id}>

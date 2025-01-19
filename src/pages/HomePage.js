@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Импорт компонента Link
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -8,7 +8,13 @@ function HomePage() {
       <nav>
         <ul>
           <li>
-            <Link to="/quests">View Quests</Link> 
+            <Link to="/quests">View All Quests</Link>
+          </li>
+          <li>
+            <Link to="/my-quests">My Quests</Link>
+          </li>
+          <li>
+            <Link to="/create-quest">Create Quest</Link>
           </li>
         </ul>
       </nav>

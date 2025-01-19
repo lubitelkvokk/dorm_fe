@@ -1,38 +1,104 @@
-.App {
+body {
+  background-color: #f0f0f0; /* Серый фон */
+  color: #000000; /* Черный текст */
+  font-family: Arial, sans-serif; /* Стандартный шрифт */
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #ffffcc; /* Светло-желтый фон */
+  color: #000080; /* Темно-синий текст */
+  padding: 10px;
+  border-bottom: 3px solid #000080; /* Темно-синяя линия снизу */
+  font-size: 20px;
+}
+
+.header .logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.nav-button {
+  background-color: #ffffcc; /* Желтый фон кнопки */
+  border: 2px solid #000080; /* Темно-синяя рамка */
+  color: #000080; /* Темно-синий текст */
+  padding: 5px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #000080; /* Темно-синий фон при наведении */
+  color: #ffffff; /* Белый текст при наведении */
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px solid #000080; /* Темно-синяя рамка */
+  background-color: #ffffff; /* Белый фон */
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
   text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  color: #000080; /* Темно-синий */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table th, table td {
+  border: 1px solid #000080; /* Темно-синие границы */
+  padding: 8px;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table th {
+  background-color: #ffffcc; /* Светло-желтый фон */
+  color: #000080; /* Темно-синий текст */
 }
 
-.App-link {
-  color: #61dafb;
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Серый фон для четных строк */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 5px 10px;
+  background-color: #ffffcc; /* Желтый фон */
+  border: 2px solid #000080; /* Темно-синяя рамка */
+  color: #000080; /* Темно-синий текст */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000080; /* Темно-синий фон */
+  color: #ffffff; /* Белый текст */
+}
+
+a {
+  color: #000080; /* Темно-синий текст */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #ffffcc; /* Светло-желтый фон */
+  color: #000080; /* Темно-синий текст */
+  text-align: center;
+  padding: 10px;
+  border-top: 3px solid #000080; /* Темно-синяя линия сверху */
 }
