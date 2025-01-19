@@ -12,8 +12,9 @@ import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
 import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
 import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
-import {ApplicationPage} from "./pages/applications/ApplicationPage";
-import {CreateAppPage} from "./pages/applications/CreateAppPage";
+import { ApplicationPage } from "./pages/applications/ApplicationPage";
+import { CreateAppPage } from "./pages/applications/CreateAppPage";
+import { AppAdminPage } from "./pages/applications/AppAdminPage";
 import Header from './components/Header';
 import { AllBookingsPage } from './pages/booking/AllBookingsPage';
 import SignUpPage from './pages/SignUpPage';
@@ -65,10 +66,13 @@ function App() {
         <Route path="/laundry/schedule" element={<LaundrySchedulePage />} />
         <Route path="/laundry/operator" element={<LaundryOperatorPage />} />
 
+
+
+        <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/apps" element={<ApplicationPage />} />
         <Route path="/apps/create" element={<CreateAppPage />} />
-        
-        <Route path="/sign-up" element={<SignUpPage/>} />
+        <Route path="/apps/admin" element={<AppAdminPage />} />
+
       </Routes>
     </AuthProvider>
   );

@@ -76,6 +76,10 @@ export const checkRole = {
 
   commandantRole(){
     return localStorage.getItem("role") === "COMMANDANT";
-  }
+  },
+
+  engineerOrCommandantRole(){
+    return this.commandantRole() || this.engineerRole();
+  },
 
 }
