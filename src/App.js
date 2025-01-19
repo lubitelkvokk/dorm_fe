@@ -16,8 +16,7 @@ import {ApplicationPage} from "./pages/applications/ApplicationPage";
 import {CreateAppPage} from "./pages/applications/CreateAppPage";
 import Header from './components/Header';
 import { AllBookingsPage } from './pages/booking/AllBookingsPage';
-import {LaundryOperatorPage} from './pages/laundry/LaundryOperatorPage';
-import {LaundrySchedulePage} from './pages/laundry/LaundrySchedulePage';
+
 
 function App() {
   return (
