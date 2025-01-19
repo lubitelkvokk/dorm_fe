@@ -10,6 +10,9 @@ const Header = () => {
     localStorage.clear(); // Удаляем данные авторизации
     navigate('/'); // Переход на страницу логина
   };  
+  const changePassword = () => {
+    navigate("/change-password");
+  }
 
   return (
     <header className="header">
@@ -19,6 +22,7 @@ const Header = () => {
         <nav>
           <button onClick={() => navigate('/home')} className="nav-button">Home</button>
           <button onClick={handleLogout} className="nav-button">Logout</button>
+          <button onClick={changePassword} className='nav-button'>Change password</button>
         </nav>
       </div>
     </header>

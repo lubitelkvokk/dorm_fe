@@ -16,6 +16,7 @@ import {ApplicationPage} from "./pages/applications/ApplicationPage";
 import {CreateAppPage} from "./pages/applications/CreateAppPage";
 import Header from './components/Header';
 import { AllBookingsPage } from './pages/booking/AllBookingsPage';
+import SignUpPage from './pages/SignUpPage';
 
 
 function App() {
@@ -64,9 +65,10 @@ function App() {
         <Route path="/laundry/schedule" element={<LaundrySchedulePage />} />
         <Route path="/laundry/operator" element={<LaundryOperatorPage />} />
 
-          <Route path="/apps" element={<ApplicationPage />} />
-          <Route path="/apps/create" element={<CreateAppPage />} />
-
+        <Route path="/apps" element={<ApplicationPage />} />
+        <Route path="/apps/create" element={<CreateAppPage />} />
+        
+        <Route path="/sign-up" element={<SignUpPage/>} />
       </Routes>
     </AuthProvider>
   );

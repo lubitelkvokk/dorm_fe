@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { apiService } from '../services/ApiService';
 
 function SignUp() {
@@ -11,46 +10,50 @@ function SignUp() {
       gender: '',
       role: 'RESIDENT', // Значение по умолчанию
     },
-    username: '',
-    password: '',
   });
 
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [successMessage, setSuccessMessage] = useState(null); // Для вывода сообщения из ответа
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name in formData.personDTO) {
-      // Обновляем поля внутри personDTO
-      setFormData((prev) => ({
-        ...prev,
-        personDTO: {
-          ...prev.personDTO,
-          [name]: value,
-        },
-      }));
-    } else {
-      // Обновляем username и password
-      setFormData((prev) => ({
-        ...prev,
+    setFormData((prev) => ({
+      ...prev,
+      personDTO: {
+        ...prev.personDTO,
         [name]: value,
-      }));
-    }
+      },
+    }));
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await apiService.post('register', formData); // Отправка JSON на сервер
+      const formattedData = {
+        ...formData,
+        personDTO: {
+          ...formData.personDTO,
+          gender: formData.personDTO.gender.toUpperCase(), // Приведение к верхнему регистру
+          role: formData.personDTO.role.toUpperCase(), // Приведение к верхнему регистру
+        },
+      };
+
+      const response = await apiService.post('auth/sign_up', formattedData); // Отправка JSON на сервер
+
       if (response.ok) {
-        alert('Registration successful!');
-        navigate('/home'); // Перенаправляем пользователя
+        const data = await response.text(); // Получаем JSON-ответ с сервера
+        alert(data);
+        setSuccessMessage(`Registration successful! Temporary password: ${data.tempPassword}`); // Выводим временный пароль
+        setError(null); // Сбрасываем ошибки
       } else {
-        setError('Registration failed. Please check the input data.');
+        const errorText = await response.text();
+        setError(`Registration failed: ${errorText}`);
+        setSuccessMessage(null); // Сбрасываем сообщение успеха
       }
     } catch (err) {
       setError('An error occurred during registration.');
+      setSuccessMessage(null); // Сбрасываем сообщение успеха
     }
   };
 
@@ -116,31 +119,11 @@ function SignUp() {
             <option value="OPERATOR">Operator</option>
           </select>
         </div>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Sign-up</button>
       </form>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
     </div>
   );
 }

@@ -11,19 +11,20 @@ function HomePage() {
           <li>
             <Link to="/quests">View All Quests</Link>
           </li>
+
           <li>
-            <Link to="/laundry/operator">Laundry(operator page)</Link>
+            <Link to="/laundry/schedule">Laundry-schedule</Link>
           </li>
           {
             checkRole.laundryOperatorRole() &&
             <li>
-              <Link to="/laundry/schedule">Laundry-schedule</Link>
+              <Link to="/laundry/operator">Laundry(operator page)</Link>
             </li>
           }
           {
             checkRole.commandantRole() &&
             <li>
-              <Link to="/sing-up">Sign-up user</Link>
+              <Link to="/sign-up">Sign-up user</Link>
             </li>
           }
         </ul>

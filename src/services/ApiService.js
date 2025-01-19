@@ -34,6 +34,7 @@ export const apiService = {
       console.log(response);
       let error_msg = await response.text();
       console.log(error_msg);
+      alert(error_msg);
       throw new Error(`POST ${url} failed: ${error_msg}`);
     }
     return response;
