@@ -12,6 +12,8 @@ import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
 import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
 import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
+import {ApplicationPage} from "./pages/applications/ApplicationPage";
+import {CreateAppPage} from "./pages/applications/CreateAppPage";
 
 function App() {
   return (
@@ -57,6 +59,10 @@ function App() {
 
         <Route path="/laundry/schedule" element={<LaundrySchedulePage />} />
         <Route path="/laundry/operator" element={<LaundryOperatorPage />} />
+
+          <Route path="/apps" element={<ApplicationPage />} />
+          <Route path="/apps/create" element={<CreateAppPage />} />
+
       </Routes>
     </AuthProvider>
   );
