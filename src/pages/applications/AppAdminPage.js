@@ -94,7 +94,7 @@ const AppAdminPage = () => {
                                 <input
                                     type="radio"
                                     onChange={(e) =>
-                                        setNewType((prev) => ({ ...prev, role: e.target.value }))
+                                        setNewType((prev) => ({ ...prev, role: role }))
                                     }
                                     required
                                 />
