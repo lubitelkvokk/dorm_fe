@@ -10,6 +10,10 @@ import { AuthProvider, checkRole } from './services/AuthService';
 import { UserQuestsPage } from './pages/quests/UserQuestsPage';
 import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
+import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
+import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
+import {ApplicationPage} from "./pages/applications/ApplicationPage";
+import {CreateAppPage} from "./pages/applications/CreateAppPage";
 import Header from './components/Header';
 import { AllBookingsPage } from './pages/booking/AllBookingsPage';
 import {LaundryOperatorPage} from './pages/laundry/LaundryOperatorPage';
@@ -57,15 +61,18 @@ function App() {
         <Route path="/quests" element={<QuestsPage />} />
         <Route path="/my-quests" element={<UserQuestsPage />} />
         <Route path="/create-quest" element={<CreateQuestPage />} />
-        <Route path="/laundry" element={<LaundryOperatorPage />} />
-        <Route path="/laundry-schedule" element={<LaundrySchedulePage />} />
-        
-        
-        <Route path="/booking" element={<AllBookingsPage/>}/>
+
+        <Route path="/laundry/schedule" element={<LaundrySchedulePage />} />
+        <Route path="/laundry/operator" element={<LaundryOperatorPage />} />
+
+          <Route path="/apps" element={<ApplicationPage />} />
+          <Route path="/apps/create" element={<CreateAppPage />} />
+
       </Routes>
     </AuthProvider>
   );
 }
+
 
 export default App;
 

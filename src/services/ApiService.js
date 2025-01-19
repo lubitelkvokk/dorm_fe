@@ -56,5 +56,18 @@ export const apiService = {
     }
     return response;
   },
+
+  async delete(url, headers = {}) {
+    const authHeaders = JSON.parse(localStorage.getItem("authHeaders")) || {};
+    const response = await fetch(baseUrl + url, {
+      method: 'DELETE',
+      headers: { ...authHeaders, ...headers }
+    });
+    if (!response.ok) {
+      let error_msg = await response.text();
+      throw new Error(`DELETE ${url} failed: ${error_msg}`);
+    }
+    return response;
+  },
   // Other HTTP methods (PUT, DELETE) can be added here.
 };
