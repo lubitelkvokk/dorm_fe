@@ -6,11 +6,14 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import ChangePassword from './pages/ChangePassword';
 import ProtectedRoute from './services/ProtectedRouter';
-import { AuthProvider } from './services/AuthService';
+import { AuthProvider, checkRole } from './services/AuthService';
 import { UserQuestsPage } from './pages/quests/UserQuestsPage';
 import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
 import Header from './components/Header';
+import { AllBookingsPage } from './pages/booking/AllBookingsPage';
+import {LaundryOperatorPage} from './pages/laundry/LaundryOperatorPage';
+import {LaundrySchedulePage} from './pages/laundry/LaundrySchedulePage';
 
 function App() {
   return (
@@ -54,6 +57,11 @@ function App() {
         <Route path="/quests" element={<QuestsPage />} />
         <Route path="/my-quests" element={<UserQuestsPage />} />
         <Route path="/create-quest" element={<CreateQuestPage />} />
+        <Route path="/laundry" element={<LaundryOperatorPage />} />
+        <Route path="/laundry-schedule" element={<LaundrySchedulePage />} />
+        
+        
+        <Route path="/booking" element={<AllBookingsPage/>}/>
       </Routes>
     </AuthProvider>
   );

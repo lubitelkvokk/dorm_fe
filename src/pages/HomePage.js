@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { checkRole } from '../services/AuthService';
 
 function HomePage() {
   return (
@@ -11,11 +12,20 @@ function HomePage() {
             <Link to="/quests">View All Quests</Link>
           </li>
           <li>
-            <Link to="/my-quests">My Quests</Link>
+            <Link to="/laundry">Laundry(operator page)</Link>
           </li>
-          <li>
-            <Link to="/create-quest">Create Quest</Link>
-          </li>
+          {
+            checkRole.laundryOperatorRole() &&
+            <li>
+              <Link to="/laundry-schedule">Laundry-schedule</Link>
+            </li>
+          }
+          {
+            checkRole.commandantRole() &&
+            <li>
+              <Link to="/sing-up">Sign-up user</Link>
+            </li>
+          }
         </ul>
       </nav>
     </div>
