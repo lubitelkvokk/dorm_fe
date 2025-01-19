@@ -6,20 +6,20 @@ function HomePage() {
     <div>
       <h1>Home Page</h1>
       <nav>
-        <ul>
-          <li>
-            <Link to="/quests">View All Quests</Link>
-          </li>
-          <li>
-            <Link to="/my-quests">My Quests</Link>
-          </li>
-          <li>
-            <Link to="/create-quest">Create Quest</Link>
-          </li>
-            <li>
-                <Link to="/apps">Applications</Link>
-            </li>
-        </ul>
+          <ul>
+              <li>
+                  <Link to="/quests">View All Quests</Link>
+              </li>
+              <li>
+                  <Link to="/my-quests">My Quests</Link>
+              </li>
+              <li>
+                  <Link to="/create-quest">Create Quest</Link>
+              </li>
+              <li>
+                  <Link to="/apps">Applications</Link>
+              </li>
+          </ul>
       </nav>
     </div>
   );

@@ -14,6 +14,7 @@ import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
 import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
 import {ApplicationPage} from "./pages/applications/ApplicationPage";
 import {CreateAppPage} from "./pages/applications/CreateAppPage";
+import {AppAdminPage} from "./pages/applications/AppAdminPage";
 import Header from './components/Header';
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
 
           <Route path="/apps" element={<ApplicationPage />} />
           <Route path="/apps/create" element={<CreateAppPage />} />
+          <Route path="/apps/admin" element={<AppAdminPage />} />
 
       </Routes>
     </AuthProvider>
