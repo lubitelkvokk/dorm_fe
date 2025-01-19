@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiService } from '../../services/ApiService';
+import { useNavigate } from 'react-router-dom'; 
 
 const UserQuestsPage = () => {
     const [userQuests, setUserQuests] = useState([]);
@@ -8,6 +9,7 @@ const UserQuestsPage = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [pageSize, setPageSize] = useState(3);
     const [totalPages, setTotalPages] = useState(1);
+    const navigate = useNavigate();
 
     const fetchUserQuests = async (page, size) => {
         setLoading(true);
@@ -43,6 +45,7 @@ const UserQuestsPage = () => {
     return (
         <div>
             <h1>My Quests</h1>
+            <button onClick={() => navigate('/home')}>Back to Home</button>
             <ul>
                 {userQuests.map((quest) => (
                     <li key={quest.id}>

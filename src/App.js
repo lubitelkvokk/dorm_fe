@@ -14,10 +14,12 @@ import { LaundrySchedulePage } from './pages/laundry/LaundrySchedulePage';
 import { LaundryOperatorPage } from './pages/laundry/LaundryOperatorPage';
 import {ApplicationPage} from "./pages/applications/ApplicationPage";
 import {CreateAppPage} from "./pages/applications/CreateAppPage";
+import Header from './components/Header';
 
 function App() {
   return (
     <AuthProvider>
+      <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
@@ -70,3 +72,4 @@ function App() {
 
 
 export default App;
+
