@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import ChangePassword from './pages/ChangePassword';
 import ProtectedRoute from './services/ProtectedRouter';
-import { AuthProvider } from './services/AuthService';
+import { AuthProvider, checkRole } from './services/AuthService';
 import { UserQuestsPage } from './pages/quests/UserQuestsPage';
 import { QuestsPage } from './pages/quests/QuestPage';
 import { CreateQuestPage } from './pages/quests/CreateQuestPage';
@@ -16,6 +16,8 @@ import {ApplicationPage} from "./pages/applications/ApplicationPage";
 import {CreateAppPage} from "./pages/applications/CreateAppPage";
 import {AppAdminPage} from "./pages/applications/AppAdminPage";
 import Header from './components/Header';
+import { AllBookingsPage } from './pages/booking/AllBookingsPage';
+
 
 function App() {
   return (
