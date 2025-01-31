@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Курсовая работа: Фронтенд информационной системы управления общежитием
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Используемые технологии
 
-## Available Scripts
+- **Frontend**: React
+- **Маршрутизация**: React Router
+- **HTTP-клиент**: Axios
+- **Стилизация**: CSS Modules / Styled Components
+- **Тестирование**: Jest, React Testing Library
+- **Сборка проекта**: Webpack / Create React App
 
-In the project directory, you can run:
+## Описание репозитория
 
-### `npm start`
+Репозиторий `dorm_fe` содержит исходный код клиентской части информационной системы управления общежитием. Фронтенд-приложение разработано с использованием библиотеки React и обеспечивает интуитивно понятный интерфейс для взаимодействия пользователей с системой.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Основные компоненты
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Компоненты интерфейса**: 
+  - **Главная страница**: предоставляет обзор функциональности и навигацию по приложению.
+  - **Страница авторизации**: позволяет пользователям входить в систему с использованием учетных данных.
+  - **Панель администратора**: доступна для администраторов и предоставляет инструменты для управления студентами, комнатами, заявками на ремонт и платежами.
+  - **Личный кабинет студента**: позволяет студентам просматривать информацию о своем проживании, подавать заявки на ремонт и отслеживать их статус.
 
-### `npm test`
+- **Управление состоянием**: 
+  - **Redux**: используется для централизованного управления состоянием приложения, обеспечивая предсказуемость и упрощая отладку.
+  - **Redux Thunk**: применяется для обработки асинхронных операций, таких как запросы к API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Маршрутизация**: 
+  - **React Router**: обеспечивает навигацию между различными страницами приложения без перезагрузки страницы.
 
-### `npm run build`
+- **HTTP-запросы**: 
+  - **Axios**: используется для взаимодействия с бэкенд-API, включая отправку запросов на авторизацию, получение и обновление данных.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Управление формами**: 
+  - **Formik**: облегчает создание и управление формами, обеспечивая удобную работу с состоянием формы и обработкой отправки.
+  - **Yup**: используется совместно с Formik для валидации данных формы, обеспечивая проверку корректности вводимых пользователем данных.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Стилизация**: 
+  - **CSS Modules / Styled Components**: применяются для написания изолированных и переиспользуемых стилей, обеспечивая поддержку тем и адаптивный дизайн.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Тестирование**: 
+  - **Jest**: фреймворк для тестирования JavaScript-кода, используемый для написания и запуска тестов.
+  - **React Testing Library**: предоставляет утилиты для тестирования React-компонентов, фокусируясь на поведении пользователя.
 
-### `npm run eject`
+### Интересные реализации
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Аутентификация и авторизация**: 
+  - Реализована система аутентификации с использованием JWT. Токены сохраняются в локальном хранилище браузера и автоматически добавляются к каждому запросу, требующему авторизации.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Обработка ошибок**: 
+  - Центральная система обработки ошибок перехватывает ошибки, возникающие при взаимодействии с API, и отображает соответствующие сообщения пользователю.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Защищенные маршруты**: 
+  - Использование HOC (Higher-Order Components) для защиты маршрутов, требующих аутентификации, перенаправляя неавторизованных пользователей на страницу входа.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Реактивные формы**: 
+  - Формы, созданные с помощью Formik и Yup, обеспечивают мгновенную валидацию и отображение сообщений об ошибках, улучшая пользовательский опыт.
 
-## Learn More
+### Запуск приложения
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Клонирование репозитория**:
+   ```bash
+   git clone https://github.com/lubitelkvokk/dorm_fe.git
+   cd dorm_fe
